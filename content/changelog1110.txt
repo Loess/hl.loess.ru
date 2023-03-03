@@ -1,0 +1,393 @@
+v1.1.1.0
+--------
+[6.12.02]
+
+Changes/Additions:
+------------------
+- Ricochet included in this release.
+- Added logging of the anti-cheat system catching and kicking detected cheats.
+- Added logging of "kick" commands.
+- Added logging of "banid" commands.
+- Changed error message if clients try to download missing resources to be more helpful.
+- Changed 'exec' command now only works on .cfg and .rc files.
+- Changed 'exec' command no longer allows ".." or "\\" or ":" in the filename.
+- Added new debug message for mod makers if a packet couldn't be parsed correctly.
+- Linux: hlds_run now does auto-restart by default (to disable: define "-norestart" on the command line)
+- Linux: hlds_run uses "exec" when you define the "-norestart" option.
+- Linux: Added -pingboost command line parameter.  Currently supports three different methods ('-pingboost 1', '-pingboost 2', and 'pingboost 3').  These may not work well (or at all) on some OS environments.
+- Linux: Added "-debug" flag to hlds_run to automatically run gdb and pull out useful info.
+
+New CVARS:
+----------
+- Added "serverversion", can be set to '1108' to view/re-record old demos.
+- Added "sv_logbans" to turn the logging of player bans on and off.  Default is 0 (off).
+
+Bug Fixes:
+----------
+- Fixed incorrect WonID logging.
+- Fixed sv_allowdownload being required to be set to 1 for clients to connect to secure servers.
+- Fixed 'bad address type' fatal error on servers that attempt to run in secure mode but have no DNS resolution.
+- Fixed DropClient messages for Steam clients who were banned or have a duplicate Steam ID to properly show the SteamID of the client.
+- Fixed HLTV reporting wrong spectator numbers if connection to server was pending.
+- Fixed "multicast 1" not working if it was issued before HLTV connected to game server.
+- Fixed relay proxies reporting wrong spectator/slots numbers in multiplayer/LAN menu.
+- Fixed DMC powerup bug where the invisibility ring would make people glow red.
+- Fixed rcon bug in HLTV.
+- Fixed delay being reset to default value during changelevel.
+- Fixed a problem with propagating HLTV banners.
+- Fixed client freeze on exit.
+- Fixed framerate problem on some ATI video cards.
+- Fixed MaxPing filter not being saved correctly.
+- Fixed sky box bug.
+- Fixed TFC spy disguise menu bug.
+- Fixed DMC view model animation bug.
+- Fixed bug using "exec <filename>" on large files (e.g. banned.cfg).
+- Linux: Fixed server using 64 MB more memory than it needed to.
+- Linux: Fixed 'undefined symbol: __strtouq_internal' on some Linux systems.
+- Linux: Fixed segmentation fault on some Linux systems when attempting to run in secure mode.
+
+
+v1.1.0.9
+--------
+[4.24.02]
+
+Changes/Additions:
+------------------
+- Added Anti-Cheat protection.
+- User Interface redone for HLTV.
+- Added cheering to HLTV.
+- Muting a player in the scoreboard will also mute their text messages.
+- Steam beta clients and non-Steam clients can play together on the same server now.
+- Voice communication uses DirectSound by default now.
+- Added player ID to Half-Life DM.
+- Added chat flood protection to HLDM.
+- Added logging of fatal Sys_Error server shutdowns.
+- Dedicated servers (Win32 + Linux) now default to 32MB heapsize.
+- Improved dedicated server FPS (sys_ticrate) accuracy in Windows NT/2K/XP and Linux.
+
+New CVARS:
+----------
+"sv_send_logos"
+when "sv_allowdownloads" is set to 1, this cvar will control whether custom logos are propagated to clients
+default: 1
+
+"sv_send_resources"
+when "sv_allowdownloads" is set to 1, this cvar will control whether resources are propagated to clients
+default: 1
+
+Bug Fixes:
+----------
+- Fixed bogus \Save directory being created when you ran Half-Life.
+- Fixed filter logic in the launcher.
+- Fixed bug where clients couldn't connect to server side only MODs.
+- Fixed bug where you could "kill" the HLTV entity in Half-Life DM.
+- Fixed AddIP command.
+- Fixed crash when a func_breakable triggers a trigger_counter.
+- Fixed Egon gun beam problem in Half-Life DM.
+- Fixed Tau cannon prediction problem.
+- Fixed fog messing Additive sprites.
+- Fixed Alien Grunts not making any attack sounds.
+- Fixed Egon's beam looking yellow in sofware mode.
+- Removed "friends" connectionless packet query.
+- Fixed "bad address type" fatal server error (caused by clients with long names).
+- Fixed "condump" so the output won't overwrite previous files.
+- Fixed "cvarlist" so the output won't overwrite previous files.
+- Fixed rcon_port and rcon_address so they can be set manually by the player to rcon a server.
+- Fixed server shutdowns related to using bots.
+
+
+v1.1.0.8
+--------
+[9.18.01]
+
+Changes/Additions:
+------------------
+- Multicast spectator added.
+- Voice communication added.
+- Hardware survey in installer.
+- Added server chat to logging.
+- Redesigned multiplayer scoreboard.
+- CapsLock key is now bindable.
+- HLDM weapons now use client side prediction.
+
+Bug Fixes:
+----------
+- Bunny hopping removed from HLDM, Counter-Strike, TFC, and DMC.
+- Fixed banned.cfg problem with more than 1024 entries.
+- Fixed screenshots overwriting each other.
+- Buffer overflow exploit fixed.
+- "condump", "cmdlist", and "cvarlist" only write out to the game directory.
+- Fixed spy crouching bug in TFC.
+- Fixed team switching grenade bug.
+- Feigned spies do not show a weapon model.
+- Sentry guns, Dispensers, and Detpacks cannot block doorways.
+- Fixed "detstart"command
+- Caltrops are being logged in TFC.
+- Sentry gun and Dispensers are logged in TFC correctly.
+- Switching to Spectator is now logged in TFC.
+- "Tell" command is logged in TFC.
+- Fixed Heavy Weapons Guy firing bug.
+- Fixed medkit kill bug.
+- Fixed Spy showing as a Scout in TFC.
+- Fixed sounds looping in TFC when a player died.
+- Fixed Quickstart crashing in the launcher.
+
+
+v1.1.0.7
+--------
+[7.9.01]
+
+Changes/Additions:
+------------------
+- Deathmatch Classic included in this update.
+- New Automatic update system.
+
+Bug Fixes:
+----------
+- Fixed GL texture binding problem (white skin bug).
+- Optimized model drawing.
+
+
+v1.1.0.6
+--------
+[3.13.01]
+
+Changes/Additions:
+------------------
+- New player models for Team Fortress.
+- New Half-Life deathmatch map included (Rapidcore).
+- New 'stat' command that shows the same information as the 'status' command, but is formatted for the screen and log file.
+- We've added a new variable, hpk_maxsize, that will allow servers and clients to set the maxsize of the "custom.hpk" file.  Once that size has been exceded the file is automatically deleted.  The cvar is set for size in megabytes.  hpk_maxsize 0, is no maxsize.  hpk_maxsize 1.5 is a file maxsize of 1.5 megabytes.
+- Added a new server variable for TFC, tfc_spectchat, that will allow the server to regulate whether or not spectators can chat with players in the game.  When set to 0, spectators can only chat with other spectators.  When set to anything but 0, spectators can chat with everyone in the game.
+
+Bug Fixes:
+----------
+- Load balancing on master server improved.
+- Changelevel2 crash on Linux server fixed.
+- Rcon say quote problem fixed.
+- Demo playback fixed.
+- Disguise5 will no longer crash a Team Fortress server.
+- Tf_ceasefire fixed.
+- Class limits at -1 crash fix.
+- Medic gets proper credit for a suicide/changeteam of infected player.
+- Launcher text in filter screen on Win98 machines not cut off.
+- Put client's IP address back into the 'status' command
+- Added code to support the server variable 'sv_allowupload'
+- Increased number of entries for banned IPs and banned WON IDs to 32768 (each).
+- Changed what types of map resource files can be downloaded using .res files (to help mod authors).  We've changed from what types of files ARE allowed to what types of files AREN'T allowed.
+- Fixed a TFC bug where players could teamkill by shooting a rocket/grenade at a teammate and switching to specator mode.
+- Fixed the "adm_deal", "adm_next", and "next" TFC commands to properly cycle through the players in the server.
+
+
+v1.1.0.4
+--------
+[10.23.00]
+
+Changes/Additions:
+------------------
+- This update contains three new TF maps: Avanti, Flagrun, and Casbah.
+- Pyro's burn damage increased in Team Fortress.
+- Heavy Weapons Guy's chaingun damage reduced.
+- All map resources can be downloaded from the game server now.  Refer to readme.txt for details.
+- Anti-grenade triggers added to 2Fort spawn rooms.
+- Team selection also available from class selection screen in Team Fortress.
+- In-Game text upgraded.
+- Last weapon used key persists over a player death now.
+
+Bug Fixes:
+----------
+- Counter-Strike proxy cheat fixed.
+- High framerate connection problem fixed.
+- Cockroaches can now be killed in single player.
+- 'Tell' command crash fixed in Team Fortress.
+- Rcon buffer overflow fixed.
+
+v1.1.0.1
+--------
+[6.26.00]
+
+Bug Fixes:
+----------
+- Fixed performance problem on ATI Rage video cards.
+- Fixed 'Unassigned' in scoreboard bug.
+- Fixed death messages being delayed when downloading a custom decal.
+- Fixed 'Out of Handles' crash on dedicated server.
+- Fixed bug where player models would be drawn incorrectly in Team Fortress 1.5
+- Fixed fakelag exploit.
+- Fixed mmx optimization.
+- Restart command fixed on dedicated server.
+- Fixed two flags in Dustbowl bug.
+- Fixed longjump in Half-Life DM.
+- Fixed spectator grenade exploit.
+- Fixed changeteam grenade exploit.
+
+v1.1.0.0
+--------
+[6.7.00]
+
+Changes/Additions:
+------------------
+- This update includes a complete rewrite of Half-Life's networking system.
+- VGUI in-game interface included.  Use Configuration screen in the launcher to bind a key to it.
+- Three new maps included (Dustbowl, Epicenter, and Warpath).
+- Engineer upgrades sentry gun immediately.
+- Dispensers can be used by touching them.
+- Spectator mode added.
+- Number pad keys are now bindable independent.
+- Support for mouse buttons 4 and 5.
+- You will get a point in TFC for destroying an enemy sentry gun.
+- Engineer can view other Engineer's sentry gun stats via HUD.
+- Tell command added to TFC.
+- The class of everyone on your team is available via the scoreboard.
+- Grenade timer added to TFC.
+- Updated netgraph, use net_graph 3.
+- TFC Manual updated with all information pertaining to this update.
+- Console and in-game chat uses a True Type font.
+- Player names are colored according to team in TFC when talking.
+- MOTD length increased for server operators.
+
+Bug Fixes:
+----------
+- Team-only backpacks in Badlands fixed.
+- Ground underneath platform in Rock2 fixed.
+- Det packs will hurt demoman underwater.
+- Firing through walls as demoman/soldier bug fixed.
+- Sentry guns will not fire at allied teams.
+- Hallucination effect for gas grenade is all client side now.
+- Grenade packs in 2fort fixed.
+- Level one sentry gun will point at enemies correctly.
+- Scoreboard accuracy problems fixed.
+- Grenades will not be removed by goal items or doors now.
+- Laser sight for .357 in HLDM fixed when zooming for the first time.
+- No build brush added to upper resupply in 2fort.
+- Clip brushes added to battlement in 2fort.
+- Demoman can no longer instantly detonate pipebombs.
+- Concussion jumping as Scout/Medic in TFC reduced.
+- Removed GL renderer cvars that were being used for cheating.
+- If no maps are in the mod's \maps directory, the \valve\maps will be shown.
+
+
+v1.0.1.6
+--------
+[2.15.00]
+
+Changes/Additions:
+------------------
+- Two new Team Fortress Classic maps included in this update: Badlands and Crossover2. 
+
+Bug Fixes:
+----------
+- Fixed chat room issues.
+- Rolled setinfo bug fix into client release.
+- Rolled in trigger_changelevel fix to client release.
+- Fixed cheat where players could run around after they were dead in Team Fotress Classic.
+- Fixed corrupting server list files bug.
+- Split packet signon bug fixed.
+- Improved server stability.
+- Fixed problem where engine was not switching back to launcher when running in 640*480 OpenGL.
+
+
+v1.0.1.3
+--------
+[8.11.99]
+
+Changes/Additions:
+------------------
+- Mod browser now supports .zip file compression.
+- TF Stats included with this update.  
+- Server now allows banning by userid.  Refer to TFCServer.htm located in your \halflife\tfc\manual folder.
+- Updated TFC manual with information on running a TFC server.
+
+Bug Fixes:
+----------
+- Fixed problem where too many packets were being sent at signon that was causing problems for cable modem users.
+- Team 4 can now score on 4 player TFC maps.
+- Fixed soldier's nail grenades in TFC.
+- Demo Playback fixed.
+- Userinfo overrun fixed.
+- Spies feigning in doorways will no longer drop all clients on server.
+- Grenades will no longer detonate if you change teams.
+- Dedicated server no longer requires hw.dll for authentication.
+- Dedicated server will heartbeat with +map in the command line.
+
+
+v1.0.1.0
+--------
+[5.25.99]
+
+Changes/Additions:
+------------------
+- Dedicated server is now a console application, making remote administration easier.
+- Server browser downloads server information based on bandwidth.
+- Reduced data sent on server updates, making updates faster.
+- Dedicated server optimized.
+- Team Fortress game code optimized.
+
+Bug Fixes:
+-----------
+- Invalid authentication after attempting to join a full server bug fixed.
+- Empty sever list on low-bandwidth connection fixed.
+- Water prediction code optimized.
+- DNS lookup on LAN servers fixed.
+- Latency values are more accurate in launcher.
+
+
+v1.0.0.9
+--------
+[4.7.99]
+
+Changes/Additions:
+------------------
+- Team Fortress Classic first introduced in this release.
+- Launcher now supports downloading of custom modifications for Half-Life.
+- Launcher now shows if a server is a dedicated, listen, or Linux server.
+- Launcher detects if servers are running the same version of Half-Life as you.
+- Support for pinging multiple master servers added.
+- Sorting options are now more robust in the launcher.
+- Server passwords are checked before game engine is started.
+- Dedicated server logging added.
+- Dedicated server will now echo all client talking to the dedicated server console.
+
+Bug Fixes :
+-----------
+- OpenGL multitexturing optimized.
+- OpenGL decal usage optimized.
+- Single player game will no longer open up a Dial-Up connection box for Internet Explorer 4.0 users.
+- Fixed 'Used Decal # without a name problem.
+- Decal downloading streamlined.
+- Fixed timedemo/demo playback problems.
+
+
+
+v1.0.0.8
+--------
+[1.15.99]
+
+Changes/Additions:
+------------------
+
+Bug Fixes :
+-----------
+- Disabled the music track check in CD Authentication.
+- Adjusted the default configuration for multiplayer to be more appropriate for people with lower speed modems or with high ping/bad packet loss.
+- The default rate for LAN games set to 9999.
+- Clients LAN Games on TCP/IP are limited to addresses with the same netid as the server or non-routeable IP address.
+- Fixed an uninstall issue that may affect custom locations.
+
+Previous Update Fixes:
+- Fixed an A3D underwater sound bug.
+- Improved multiplayer performance through bandwidth optimizations and better prediction.  Modem users will see less apparent lag as a result.
+- Added support for IPX based LANs.
+- Added teamplay option for multiplayer games.
+- Added option to limit total number of decals you can see in multiplayer.  Try setting ‘r_decals 500’ if you’re experiencing slowdowns after long periods of game play.
+- Joysticks can now be used to move at the same time a mouse is used to look.
+- The server ping can now be shown as a numeric value instead of green dots.  Use the "-numericping" command line option when launching hl.exe.
+- Improved ladder performance in multiplayer.
+- Added EAX 4 speaker support.
+- Fixed bug that allowed bypassing of ammo reloading.
+- Fixed bug where train and rocket sounds would play repeatedly in multiplayer games.
+- Increased number of regional multiplayer servers. 
+- Increased accuracy of ping calculations in the Internet Games menu.
+- Increased accuracy of latency values in the scoring screen.
+- Fixed bug preventing climbing ladders when playing with a joystick.
+- Added 3 new player models (Security guard, military robot, zombie) and 2 multiplay maps (frenzy.bsp, crossfire.bsp).

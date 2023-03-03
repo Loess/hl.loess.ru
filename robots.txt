@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: /?feedback
+Disallow: /giveme.php
+Disallow: /?brokenlink*
+Disallow: /?engine*
+Disallow: /?edit*
+Disallow: /hlstats/*
+Disallow: /persistent/*

@@ -1,0 +1,49 @@
+
+<a href="http://aghl.ru/" title="Russian Half-Life and Adrenaline Gamer community" target="_blank"><img
+src="http://aghl.ru/buttons/aghl_button88x31.gif" alt="AGHL.RU" width="88" height="31" /> Russian HLDM gaming/AMXX modding community</a><br
+/><br
+/><a href="http://www.twhl.co.za/"><img src="./style/spacer.gif" class="twhl16" alt="" /> The Whole Half-Life</a><br
+/><a href="http://www.moddb.com/mods" ><img src="./style/spacer.gif" class="moddb16" alt="" /> ModDB</a><br
+/><a href="http://cs-mapping.com.ua/" ><img src="./style/spacer.gif" class="csm" alt="" /> cs-mapping.com.ua</a><br
+/><a href="http://www.pcosmos.ca/mods-hl/" ><img src="./style/spacer.gif" class="pcosmos16" width="16" height="16" alt="" /> pcosmos.ca</a> first of the most useful link storages<br
+/><a href="http://www.halflifelibrary.com/" ><img src="./style/spacer.gif" class="hllib16" alt="" /> Half-Life Library</a> wiki<br
+/><a href="http://www.sourcemodding.com/" ><img src="./style/spacer.gif" class="clean16" alt="" /> sourcemodding.com</a> - nice manuals library<br
+/><a href="http://www.gamer-lab.com/" ><img src="./style/spacer.gif" class="clean16" alt="" /> gamer-lab.com</a> - ex hl-lab.ru. good storage for mods<br
+/><a href="http://www.city17.ru/" ><img src="./style/spacer.gif" class="c1716" alt="" /> City 17</a> - dead. It was the best russian reviewing resource, currently hosting <a href="http://hl.loess.ru/c17archive/">/c17archive/</a> on this site<br
+/><a href="http://www.runthinkshootlive.com/posts/category/single-player-mods-and-maps/half-life/" ><img src="./style/spacer.gif" class="pp16" alt="" /> runthinkshootlive.com</a> (ex Planetphillip.com) - one of the best english reviewing resources, but Phillip spoils original archives filenames and uploads repacks with ads<br
+/><a href="http://hlfx.ru/forum" ><img src="./style/spacer.gif" class="clean16" alt="" /> hlfx.ru/forum</a> - russian developers community<br
+/><a href="https://www.youtube.com/playlist?list=PLDmcwfn8y0lMtlqcpUhggk0FB1EC2i3iB" ><img src="./style/spacer.gif" class="clean16" alt="" /> HL Fact files</a> - youtube channel with fun facts<br
+/><a href="http://www.lambda-force.org/" ><img src="./style/spacer.gif" class="clean16" alt="" /> lambda-force</a> - russian community, unique storage<br
+/><a href="http://hl-hev.ru/" ><img src="./style/spacer.gif" class="clean16" alt="" /> hl-hev.ru</a> - one more russian DM community<br
+/><a href="http://hldm.org/interes/sekrety/" ><img src="./style/spacer.gif" class="clean16" alt="" /> hldm.org</a> - one more russian DM community<br
+/><a href="http://tenfourmaps.telefragged.com/php/main.php" ><img src="./style/spacer.gif" class="ten416" alt="" /> Ten Four maps</a> - dead. It was one of the best english reviewing resources<br
+/><a href="http://halflifecity.narod.ru/modshalf1.html" ><img src="./style/spacer.gif" class="clean16" alt="" /> halflifecity.narod.ru</a> - russian reviewing resource, mod downloads<br
+/><a href="http://www.vossey.com/telechargement/liste.php" ><img src="./style/spacer.gif" class="vossey16" alt="" /> Vossey.com</a><br
+/><a href="http://mods.davlevels.com/" ><img src="./style/spacer.gif" class="clean16" alt="" /> DAV levels</a><br
+/><a href="http://half-lifecreations.com/hosting_hosted.html" ><img src="./style/spacer.gif" class="hlcreations16" alt="" /> HL Creations hosted sites</a><br
+/><a href="http://half-life.ru" ><img src="./style/spacer.gif" class="clean16" alt="" /> half-life.ru</a> russian developers forum<br
+/><a href="http://www.nashalife.ru/" ><img src="./style/spacer.gif" class="nasha16" alt="" /> Nasha-Life</a> huge russian portal, also has a wiki<br
+/><a href="http://www.filespace.ru/games/hl/" ><img src="./style/spacer.gif" class="nasha16" alt="" /> Filespace.ru</a> huge storage from huge portal<br
+/><a href="http://www.fileplanet.com/half_life.shtml" ><img src="./style/spacer.gif" class="fileplanet16" alt="" /> Fileplanet</a> fundamental storage - dying by now<br
+/><a href="http://hosting.cecak.cz/forum-modifikace/hl1/" ><img src="./style/spacer.gif" class="clean16" alt="" /> hosting.cecak.cz/forum-modifikace/hl1/</a> - one of the best czesh reviewing resources<br
+/><a href="http://ceskemody.cz/mapy.php?lng=1" ><img src="./style/spacer.gif" class="clean16" alt="" /> ceskemody.cz</a> - centralni web o ceskych a slovenskych modifikacich a mapach<br
+/><a href="http://www.hlportal.de/?site=files&amp;do=showfiles&amp;cat_id=30" ><img src="./style/spacer.gif" class="hlportalde16" width="16" height="16" alt="" /> hlportal.de</a> - one of the best deutch reviewing and storing resources<br
+/><a href="http://scrama.3dn.ru/" ><img src="./style/spacer.gif" class="clean16" alt="" /> Уголок Авантюриста</a> - Scrama's lair<br
+/><a href="http://chainstudios.hlfx.ru/" ><img src="./style/spacer.gif" class="clean16" alt="" /> Chainstudios</a> - russian developers community<br
+/><a href="http://hl-collection.ru/" ><img src="./style/spacer.gif" class="clean16" alt="" /> hl-collection.ru</a> - small russian reviewers community<br
+/><a href="http://hl-faction.ru/" ><img src="./style/spacer.gif" class="clean16" alt="" /> hl-faction.ru</a> - small russian reviewers community<br
+/><a href="http://halfer.3dn.ru/" ><img src="./style/spacer.gif" class="clean16" alt="" /> halfer.3dn.ru</a><br
+/><a href="http://www.netday.be/games/maps/latest/" ><img src="./style/spacer.gif" class="clean16" alt="" /> netday.be</a> - quality maps<br
+/><a href="http://andrej.mernik.eu/half-life/modifikacije/en.php" ><img src="./style/spacer.gif" class="clean16" alt="" /> Andrej Mernik`s Homepage</a><br
+/><a href="http://www.valvecommunity.com/" ><img src="./style/spacer.gif" class="clean16" alt="" /> valvecommunity.com</a> - was the website directory covering games made by Valve Software. This site was ran by PlanetPhillip. dead<br
+/><a href="http://amphibian.myzen.co.uk/HL/" ><img src="./style/spacer.gif" class="clean16" alt="" /> Amphibian MODs</a> dead<br
+/><a href="http://editingarchive.com/viewsection.php?section=Half-Life&amp;topic=Mods" ><img src="./style/spacer.gif" class="edita16" width="16" height="16" alt="" /> editingarchive.com</a> mods/sources/betas/tutors dead storage - check The Archive<!--<br
+/><a href="http://www.mediafire.com" ><img src="./style/spacer.gif" class="mf16" width="16" height="16" alt="" /> Mediafire</a><br
+/><a href="http://www.filefront.com/" ><img src="./style/spacer.gif" class="filefront16" alt="" /> FileFront</a> storage--><br
+/><a href="http://www.halflife.ru/" ><img src="./style/spacer.gif" class="clean16" alt="" /> halflife.ru</a> dead and useless<br
+/><a href="http://www.gamedesign.net/" ><img src="./style/spacer.gif" class="clean16" alt="" /> gamedesign.net</a> - developers wiki (dead - check The Archive for guides from this)<br
+/><a href="http://www.custom-level.info/downloads,39,1,half_life_single_player_mods.html" ><img src="./style/spacer.gif" class="clean16" alt="" /> custom-level.info</a> - dead<br
+/><a href="http://www.fileshack.com/browse.x/36" ><img src="./style/spacer.gif" class="fshack16" width="16" height="16" alt="" /> Fileshack</a> storage dead by now<br
+/><a href="http://www.atomicgamer.com" ><img src="./style/spacer.gif" class="atomic16" alt="" /> Atomic gamer</a> dead storage (aka telefragged.com)<br
+/><a href="http://planethalflife.gamespy.com/View.php?view=hlmods.List&amp;game=4" ><img src="./style/spacer.gif" class="gamespy16" alt="" /> Gamespy hosted sites</a> - dead<br
+/>

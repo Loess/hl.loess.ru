@@ -1,0 +1,19 @@
+Options -Indexes
+
+<FilesMatch "^(lib_mysql|lib_mysqll2|lib_importcsvtomysql|config)\.php$">
+    Order deny,allow
+    Deny from all
+    Allow from 127.0.0.1
+</FilesMatch>
+
+<FilesMatch "^mods\.csv$">
+    Order deny,allow
+    Deny from all
+    Allow from 127.0.0.1
+</FilesMatch>
+
+<Files persistent/*>
+    Order deny,allow
+    Deny from all
+    Allow from 192.168.0.0/16
+</Files>
