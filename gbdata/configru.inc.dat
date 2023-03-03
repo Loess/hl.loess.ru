@@ -1,0 +1,65 @@
+[dir]
+inc="gbdata";
+datadir="persistent";
+path=".";
+templates="templates";
+images="style";
+smiles="smiles";
+[file]
+base="messages.inc.dat";
+admins="admins.inc.dat";
+autochange="autochange.inc.dat";
+banlist="banlist.inc.dat";
+[url]
+general=".";
+images="style";
+smiles="smiles";
+[symbol]
+left="&lt;";
+right="&gt;";
+separator_between_pages=" ";
+[numeric]
+show_messages="20";
+show_pages="9";
+min_name="2";
+max_name="20";
+min_icq="5";
+max_message="500";
+max_word="60";
+flood="1";
+show_smiles="7";
+[error]
+wrong_captcha="Wrong captcha";
+empty_name="Напишите имя";
+empty_message="Напишите сообщение";
+min_name="Имя должно быть как минимум из %s символов";
+max_name="максимальная длина имени - %s символов";
+invalid_mail="Неправильный e-mail";
+invalid_homepage="Неправильное feedback info";
+invalid_icq="Неправильный icq#";
+min_icq="ICQ# должен быть максимум из %s цифр";
+max_message="Максимальная длина сообщения - %s символов";
+unknown_ip="Неизвестный IP";
+flood="1 сообщение в минуту";
+try_flood="Не повторяйся";
+max_word="Каждое слово в сообщении не должно превышать %s символов";
+ban="Вы забанены до %s<br>Причина: %s";
+[template]
+parse="default";
+[templates]
+top="top.inc.html";
+form="formru.inc.html";
+no_messages="no_messages.inc.html";
+message="message.inc.html";
+bottom="bottomru.inc.html";
+okay="okay.inc.html";
+closed="closed.inc.html";
+[closed]
+closed="0";
+messages="1";
+[script]
+name="Guestbook";
+prefix="manlix_guestbook_";
+russian="Гостевая книга";
+version="100500";
+info="привинчено by Bl@cK";

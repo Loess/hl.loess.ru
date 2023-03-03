@@ -36,3 +36,35 @@ ALTER TABLE `hl_mods`
 
 ALTER TABLE `hl_mods`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+
+DROP TABLE IF EXISTS `hl_mods_edits`;
+CREATE TABLE IF NOT EXISTS `hl_mods_edits` (
+  `counter` int(11) NOT NULL,
+  `identity` varchar(8) NOT NULL,
+  `ip` varchar(15) NOT NULL,
+  `id` int(11) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `lastver` varchar(128) DEFAULT NULL,
+  `type` varchar(64) DEFAULT NULL,
+  `requirements` varchar(64) DEFAULT NULL,
+  `released` date DEFAULT NULL,
+  `lastupdate` date DEFAULT NULL,
+  `filename` varchar(255) DEFAULT NULL,
+  `alivelinks` text,
+  `steamcompatible` varchar(2) DEFAULT NULL,
+  `dev` text,
+  `homepage` text,
+  `maps` varchar(32) DEFAULT NULL,
+  `dlltexmodlsoun` set('dll','tex','mdl','snd') DEFAULT NULL,
+  `pp` varchar(255) DEFAULT NULL,
+  `moddb` varchar(255) DEFAULT NULL,
+  `reviews` varchar(255) DEFAULT NULL,
+  `twhl` varchar(255) DEFAULT NULL,
+  `desc` text
+) ENGINE=MyISAM AUTO_INCREMENT=360 DEFAULT CHARSET=cp1251;
+
+ALTER TABLE `hl_mods_edits`
+  ADD PRIMARY KEY (`counter`);
+
+ALTER TABLE `hl_mods_edits`
+  MODIFY `counter` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1;

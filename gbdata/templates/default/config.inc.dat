@@ -1,0 +1,7 @@
+[color]
+current_page="#ffffff";  // #de0000
+not_current_page="#FCBE03";
+even="#222222";   //    #fce1ae        #f0f0f0
+uneven="#000000";   //#faedca        #fafafa    #f0f0f0
+active_symbol="#FCBE03";
+not_active_symbol="#c8c8c8";
