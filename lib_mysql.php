@@ -1,10 +1,9 @@
 <?php
-$configs = include('persistent/config.php');
-$hostname = $configs['dbhost'];
-$DB = $configs['dbname'];
-$user = $configs['dbusername'];
-$password = $configs['dbpassword'];
-$persistent_connection =  $configs['dbpersistentconn'];
+$hostname = getenv('MYSQL_HOST', true) ?: getenv('MYSQL_HOST');
+$DB = getenv('MYSQL_DATABASE', true) ?: getenv('MYSQL_DATABASE');
+$user = getenv('MYSQL_USER', true) ?: getenv('MYSQL_USER');
+$password = getenv('MYSQL_PASSWORD', true) ?: getenv('MYSQL_PASSWORD');
+$persistent_connection = false;
 
 function mysql_die() {
 //header('Refresh: 1; URL=http://hl.loess.ru/');
