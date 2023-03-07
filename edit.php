@@ -4,7 +4,10 @@
 class db{
     public $db;    //db object
     public function __construct(){
-        $configs = include('persistent/config.php');
+        $configs['dbhost'] = getenv('MYSQL_HOST', true) ?: getenv('MYSQL_HOST');
+        $configs['dbname'] = getenv('MYSQL_DATABASE', true) ?: getenv('MYSQL_DATABASE');
+        $configs['dbusername'] = getenv('MYSQL_USER', true) ?: getenv('MYSQL_USER');
+        $configs['dbpassword'] = getenv('MYSQL_PASSWORD', true) ?: getenv('MYSQL_PASSWORD');
         $this->db=new PDO('mysql:host='.$configs['dbhost'].';dbname='.$configs['dbname'],$configs['dbusername'],$configs['dbpassword']);
         unset($configs);
         $this->db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
