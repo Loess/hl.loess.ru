@@ -1,0 +1,36 @@
+version: "2"
+services:
+  hlloessru:
+    build: .
+    ports:
+      - "8081:80"
+    volumes:
+      - ./hlloessru-persistent:/var/www/html/persistent
+      - hlloessru-html:/var/www/html/
+    environment:
+      - MYSQL_HOST=db
+      - MYSQL_DATABASE=hl
+      - MYSQL_USER=hlmods
+      - MYSQL_PASSWORD=lolkek
+  db:
+    image: mariadb:10.7
+    command: '--default-authentication-plugin=mysql_native_password'
+    volumes:
+      #delete host dir hlloessru-dbdata if you want to sql imported at DB startup
+      - ./hlloessru-dbdata:/var/lib/mysql
+      - ./hl_mods.example.sql:/docker-entrypoint-initdb.d/dump.sql
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=lolkekroot
+      - MYSQL_DATABASE=hl
+      - MYSQL_USER=hlmods
+      - MYSQL_PASSWORD=lolkek
+    expose:
+      - 3306
+
+volumes:
+  hlloessru-html:
+    driver_opts:
+      o: bind
+      #delete * in host dir hlloessru-html to renew from image
+      device: /root/hl.loess.ru/hlloessru-html

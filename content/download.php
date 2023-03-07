@@ -89,7 +89,7 @@ elseif($ru==1){ */?>
 				<h1>Half-Life SP+MP Client (revemu 4554)</h1>
 
 				<img src="/content/download/70.jpg">
-				<a href="http://hl.loess.ru/dl/hl_full_eng.torrent" class="torrent" target="_blank"> Скачать .torrent</a>
+				<a href="/dl/hl_full_eng.torrent" class="torrent" target="_blank"> Скачать .torrent</a>
 				<a href="http://store.steampowered.com/app/70/" class="steam" target="_blank"> Купить в steam</a>
 				<a href="http://aghl.ru/files/patches/Half-Life_4554_Full.7z" class="site" target="_blank"> Скачать c aghl.ru</a>
 				</div>
@@ -127,12 +127,12 @@ elseif($ru==1){ */?>
 <a href="http://aghl.ru/files/patches/BugfixedHL/" target="_blank">Bugfixed and improved HL</a><br />
 <a href="http://ngageclan.ucoz.ru/load/11" target="_blank">Rofi's client DLL</a><br /><br />
 <h2>Прочее:</h2>
-<a href="http://hl.loess.ru/dl/scarab.zip" target="_blank">scarab.mdl</a><br />
-<a href="http://hl.loess.ru/dl/bones.zip" target="_blank">bones.mdl</a><br />
-<a href="http://hl.loess.ru/dl/crosshairs.spr" target="_blank">crosshairs.spr</a><br />
-<a href="http://hl.loess.ru/dl/S_SPIDER.rar" target="_blank">aim training spraypaint</a> |
-<a href="http://hl.loess.ru/?txt=trainaim" target="_blank">описание</a><br />
-<a href="http://hl.loess.ru/dl/HLProtector_R01.rar" target="_blank">HLprotector R01 Fix1</a> |
+<a href="/dl/scarab.zip" target="_blank">scarab.mdl</a><br />
+<a href="/dl/bones.zip" target="_blank">bones.mdl</a><br />
+<a href="/dl/crosshairs.spr" target="_blank">crosshairs.spr</a><br />
+<a href="/dl/S_SPIDER.rar" target="_blank">aim training spraypaint</a> |
+<a href="/?txt=trainaim" target="_blank">описание</a><br />
+<a href="/dl/HLProtector_R01.rar" target="_blank">HLprotector R01 Fix1</a> |
 <a href="http://pvpru.com/board/showthread.php?t=6833" target="_blank">описание</a> |
 <a href="https://www.virustotal.com/ru/file/7078ec758fca17737843c89a2c19988b9e5ef880e2b911d45593e020575f0bd6/analysis/1487626441/" target="_blank">Virustotal</a><br /><br />
 <div style="font-size:xx-small;">CSS cтили любезно предоставлены сайтом hl-hev.ru</div>
