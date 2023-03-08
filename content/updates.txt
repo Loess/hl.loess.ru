@@ -1,5 +1,5 @@
 <a href="https://hl.loess.ru/v2/">https://hl.loess.ru/v2/</a> WIP<br />
-08 mar 2023: two weeks became five years :D but this site now is updated directly from https://github.com/Loess/hl.loess.ru. v2 will be also on github somehow, still WIP
+08 mar 2023: two weeks became five years :D but this site now is updated directly from https://github.com/Loess/hl.loess.ru. v2 will be also on github somehow, still WIP<br />
 06 jun 2018: This is last message at this site. Currently i'm working on wikified version. After most of work is complete (in 1-2 weeks), this will be archived and new site will take place. I bet, you 'll like it =). <a href="http://hl.loess.ru/?donate">Donate</a>, by the way, the new version gonna require SSD.<br />
 30 mar 2018: <a href="http://hl.loess.ru/?server">HLDM server</a> hardware uprgaded, <a href="http://hl.loess.ru/?donate">donations</a> needed<br />
 05 feb 2017: little buggy edit system errors fixed, use &#9998; in mod description to edit, <a href="http://hl.loess.ru/?mods&search=senses">Senses in Decay</a> added, <a href="http://hl.loess.ru/?mods&search=base+def">Bdef</a> updated <br />
