@@ -13,7 +13,7 @@ To do:
 * move db to sqlite
 * do something with edit system
 * fix bugs and clean up comments
-* move to v2 site and forget about this
+* move to next site version and forget about this
 * unveil content/ented
 * unveil content/2012-04-26 engine
 * revive HLDM server
