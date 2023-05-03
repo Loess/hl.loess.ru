@@ -821,7 +821,7 @@ if($days>0){echo " and ".$days." day".($days>1?"s":"");}
 echo " ago.</p>";
 echo "<p>Here you can download 99% of the modifications ever released for it. </p>";
 echo("<p style=\"/*text-shadow: white 0px 0px 1px;*/\">For a full list go to: <a href=\"./?mods\">HL MODS</a> or <a href=\"./?mods&amp;sortby=last\">Last MODS</a></p>");
-echo "<p>if you have any questions or if you have found any additional links then leave a comment at <a href=\"./?feedback\">guestbook</a>.</p>";
+echo "<p>if you have any questions or if you have found any additional links then leave a comment at <a href=\"./?feedback\">guestbook</a> or <a href=\"https://t.me/hl_loess_ru\" target=\"_blank\">in Telegram channel</a>.</p>";
 echo("<br /><br />Last events:<p style=\"/*text-shadow: white 0px 0px 1px;*/\">");require_once("./content/updates.txt");echo("</p>");
 
 	/* ?>The main idea of this site - to collect, organize and systematize the huge number of mods of the immortal games from Valve. The site does not specialize in just <u>one type</u> of modifications, maps, games, descriptions of them, etc. The aim is wiki-like organization of the library of any manifestation of mod-building, whether it is multiplayer map, shown in some African site, or an oficial mod, independently overgrown by additions. Distinctive features of the site should be dynamic, relevant, ability to edit any who are able to correctly describe such manifestations.<br />
@@ -847,7 +847,7 @@ if($years>0){echo $years." лет";}
 if($months>0){echo ", ".$months." месяц".($months>1?"ев":"");}
 if($days>0){echo " и ".$days." дней";}
 echo " назад.</p>";
-echo "<p>Здесь можно скачать 99% модов Half-Life. Если не получается - <a href=\"./?feedback\">попросите в ГБ</a> поправить линк</p>";
+echo "<p>Здесь можно скачать 99% модов Half-Life. Если не получается - <a href=\"./?feedback\">попросите в ГБ</a> или <a href=\"https://t.me/hl_loess_ru\" target=\"_blank\">в ТГ канале</a> поправить линк</p>";
 echo("<p style=\"/*text-shadow: white 0px 0px 1px;*/\">весь список: <a href=\"./?mods\">HL MODS</a> или <a href=\"./?mods&amp;sortby=last\">Последние МОДы</a>,</p>");
 echo "<p>по всем вопросам прошу в <a href=\"./?feedback\">гостевуху</a>.</p>";
 echo("<br /><br />Последние события:<p style=\"/*text-shadow: white 0px 0px 1px;*/font-family:sans-serif;\">");require_once("./content/updates.txt");echo("</p>");
