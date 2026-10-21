@@ -1,4 +1,7 @@
 <?php
+require_once __DIR__ . '/lib_mysql.php';
+
+
 function csv_to_mysql_insert($data) //если будут добавляться новые столбцы, в этой функции добавить ещё $result.="'".$value."',";
 {	$result="";	foreach ($data as $key => $value)
 	{
@@ -68,18 +71,18 @@ if ($data==FALSE) die("no csv found");
 echo("<a href=\"".$hostlink."?upload\">Upload</a><br/>\r\n");
 echo(""." Перезалить базу из csv ".$hostlink."?upload&rebuildbase - old-style, сбросятся downloads<br/>\r\n");
 
-if(isset($_GET["rebuildbase"]) and (!isset($_GET["addnewmods"]) and !isset($_GET["renewmods"]))){	echo("truncate <b>".mysql_query("TRUNCATE TABLE `hl_mods`")."</b><br/>\r\n");
+if(isset($_GET["rebuildbase"]) and (!isset($_GET["addnewmods"]) and !isset($_GET["renewmods"]))){	echo("truncate <b>".mysqli_query($link, "TRUNCATE TABLE `hl_mods`")."</b><br/>\r\n");
 	foreach ($data as $value){		echo("id=".$value["id"]);
 		$value=csv_to_mysql_insert($value);
 		//print_r($value."<br/>");
-		echo(" ".mysql_query("INSERT INTO `hl_mods` VALUES (".$value.");")."<br/>\r\n");
+		echo(" ".mysqli_query($link, "INSERT INTO `hl_mods` VALUES (".$value.");")."<br/>\r\n");
 	}
 
-	//echo("\r\n".mysql_query("INSERT INTO `hl_mods` VALUES (".$value.");")."<br/>");
+	//echo("\r\n".mysqli_query($link, "INSERT INTO `hl_mods` VALUES (".$value.");")."<br/>");
 }
 
-$res=mysql_query("SELECT COUNT(*) FROM `hl_mods`");
-$res=mysql_fetch_array($res);
+$res=mysqli_query($link, "SELECT COUNT(*) FROM `hl_mods`");
+$res=mysqli_fetch_array($res, MYSQLI_NUM);
 echo("<pre>Записей в базе: ".$res[0]."</pre>\r\n");
 echo("<pre>Записей в csv: ".count($data)."</pre>\r\n<br/>");
 $novihmodov=count($data)-$res[0];
@@ -89,7 +92,7 @@ if ($novihmodov>0){	echo("Новых модов: ".$novihmodov." <a href=\"".$hostlink."?
 	foreach ($novihmodovdata as $value){		$value=csv_to_mysql_insert($value);
 		print_r("INSERT INTO `hl_mods` VALUES (".$value.");<br/>");
 		if(isset($_GET["addnewmods"]) and (!isset($_GET["rebuildbase"]) and !isset($_GET["renewmods"]))){
-		echo("\r\n".mysql_query("INSERT INTO `hl_mods` VALUES (".$value.");")."<br/>");
+		echo("\r\n".mysqli_query($link, "INSERT INTO `hl_mods` VALUES (".$value.");")."<br/>");
 		}
 	}
 }
@@ -141,8 +144,8 @@ foreach ($mysqldata as $k=>$v){//добавляем двойные апострофы в дате мускуля	$my
 			echo ($table_head);
 			echo("".str_replace(array("<",">"),array("&lt;","&gt;"),$mysql_query)."<br/>");
 			if(isset($_GET["renewmods"]) and (!isset($_GET["rebuildbase"]) and !isset($_GET["addnewmods"]))){
-				//echo("\r\n".mysql_query("INSERT INTO `hl_mods` VALUES (".$value.");")."<br/>");
-				echo("\r\n".mysql_query($mysql_query)."<br/>");
+				//echo("\r\n".mysqli_query($link, "INSERT INTO `hl_mods` VALUES (".$value.");")."<br/>");
+				echo("\r\n".mysqli_query($link, $mysql_query)."<br/>");
 			}
 
 		}
