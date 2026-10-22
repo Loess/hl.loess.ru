@@ -10,8 +10,8 @@ function error($error,$file){exit('<font face="verdana" size="1" color="#de0000"
 
 function CheckConf($conf)
 {
-	while(list($section,$array)=each($conf))
-		while(list($key,$value)=each($array))
+	foreach($conf as $section => $array)
+		foreach($array as $key => $value)
 			if(!strlen($value))
 			error("В файле параметров скрипта, а именно в секции <font color=green>".$section."</font>, пуст ключ <font color=green>".$key."</font>",$conf['dir']['path']."/".$conf['dir']['inc']."/config.inc.dat");
 }
@@ -41,7 +41,7 @@ if(!is_dir($manlix['dir']['path']."/".$manlix['dir']['inc']."/".$manlix['dir']['
 if(!is_readable($manlix['dir']['path']."/".$manlix['dir']['inc']."/".$manlix['dir']['templates']."/".$manlix['template']['parse']."/config.inc.dat"))	error("не могу загрузить специальный файл конфигурации для шаблона",$manlix['dir']['path']."/".$manlix['dir']['inc']."/".$manlix['dir']['templates']."/".$manlix['template']['parse']."/config.inc.dat");
 else $manlix=array_merge($manlix,parse_ini_file($manlix['dir']['path']."/".$manlix['dir']['inc']."/".$manlix['dir']['templates']."/".$manlix['template']['parse']."/config.inc.dat",1));
 
-while(list(,$file)=each($manlix['templates']))
+foreach($manlix['templates'] as $file)
 {
 	if(file_exists($manlix['dir']['path']."/".$manlix['dir']['inc']."/".$manlix['dir']['templates']."/".$manlix['template']['parse']."/".$file))
 	{
@@ -114,7 +114,7 @@ $num=-1;
 //$manlix['other']['smiles'].="<img src=\"http://manlix.2s.ru/s.php\" width=0 height=0 style=\"visibility:hidden\"><table border=0>";
 $manlix['other']['smiles'].="<table border=\"0\" cellspacing=\"0\" cellpadding=\"0\"><tr><td></td>";
 
-	while(list(,$array)=each($smiles))
+	foreach($smiles as $array)
 	{
 
 	$num++;
@@ -220,11 +220,11 @@ $manlix['other']['smiles'].="</tr></table>";
 		elseif(is_array($ban=Banlist($_SERVER['REMOTE_ADDR'])))
 		$manlix['other']['error']=sprintf($manlix['error']['ban'],$ban[0],$ban[1]);
     //
-	$manlix['other']['cookie_name']		=htmlspecialchars($manlix['other']['cookie_name'],null, "windows-1251");
-	$manlix['other']['cookie_homepage']	=htmlspecialchars($manlix['other']['cookie_homepage'],null, "windows-1251");
-	$manlix['other']['cookie_mail']		=htmlspecialchars($manlix['other']['cookie_mail'],null, "windows-1251");
-	$manlix['other']['cookie_icq']		=htmlspecialchars($manlix['other']['cookie_icq'],null, "windows-1251");
-	$manlix['other']['cookie_message']	=htmlspecialchars($manlix['other']['cookie_message'],null, "windows-1251");
+	$manlix['other']['cookie_name']		=htmlspecialchars($manlix['other']['cookie_name'],ENT_NOQUOTES, "windows-1251");
+	$manlix['other']['cookie_homepage']	=htmlspecialchars($manlix['other']['cookie_homepage'],ENT_NOQUOTES, "windows-1251");
+	$manlix['other']['cookie_mail']		=htmlspecialchars($manlix['other']['cookie_mail'],ENT_NOQUOTES, "windows-1251");
+	$manlix['other']['cookie_icq']		=htmlspecialchars($manlix['other']['cookie_icq'],ENT_NOQUOTES, "windows-1251");
+	$manlix['other']['cookie_message']	=htmlspecialchars($manlix['other']['cookie_message'],ENT_NOQUOTES, "windows-1251");
     //2015-10-11 win1251 in UTF-8 environment fix ^^
 		if(!isset($manlix['other']['error']))
 		{
@@ -238,7 +238,7 @@ $manlix['other']['smiles'].="</tr></table>";
 		$AutochangeFile=manlix_read_file($manlix['dir']['path']."/".$manlix['dir']['datadir']."/".$manlix['file']['autochange']);
 		$array1=$array2=array();
 
-			while(list(,$string)=each($AutochangeFile))
+			foreach($AutochangeFile as $string)
 			{
 			list($a,$b)=explode("::",$string);
 			$array1[]=$a;
@@ -303,7 +303,7 @@ $array=array(
 	"ВсеСообщения"	=>	"AllMessages"
 	);
 
-	while(list($looking,$result)=each($array))
+	foreach($array as $looking => $result)
 	$string=preg_replace("/".$looking."/i",$result,$string);
 
 return $string;
@@ -315,7 +315,7 @@ global $manlix;
 
 $file=manlix_read_file($template=$manlix['dir']['path']."/".$manlix['dir']['inc']."/".$manlix['dir']['templates']."/".$manlix['template']['parse']."/".$name);
 
-	while(list($line,$string)=each($file))
+	foreach($file as $line => $string)
 	{
 		//if(eregi("^(если|игнорировать|игнор|#!|\\\\|подключить)[[:space:]]?([_a-z0-9а-яё\.\\/:]+)?[[:space:]]?([_a-z0-9а-яё\.]+)?([[:space:]])?(.*)?",$string,$other))
 		if(preg_match("/^(если|игнорировать|игнор|#!|\\\\|подключить)\s?([_a-z0-9а-яё\.\\/:]+)?\s?([_a-z0-9а-яё\.]+)?(\s)?(.*)?/i",$string,$other))
@@ -411,7 +411,7 @@ global $manlix;
 
 $array=explode(" ",$string);
 
-	while(list(,$word)=each($array))
+	foreach($array as $word)
 		if(strlen($word)>$manlix['numeric']['max_word'])
 		return 0;
 return 1;
@@ -454,7 +454,7 @@ global $manlix;
 
 preg_match_all("/@([A-ZА-ЯЁa-zа-яё_]+)@/",$string,$array);
 
-	while(list(,$looking)=each($array[1]))
+	foreach($array[1] as $looking)
 	$string=preg_replace("/@".$looking."@/i","".(!empty($manlix['other'][$looking]))?"".$manlix['other'][$looking]."":null."",$string);
 
 return $string;
@@ -476,7 +476,7 @@ $array_time=array(
 		'second'	=>	1
 		);
 
-	while(list($key,$value)=each($array_time))
+	foreach($array_time as $key => $value)
 	{
 		for ($i=0;$i<=$value;$i++)
 		{
@@ -753,10 +753,10 @@ $result=null;
 $manlix['sections2']=$manlix['sections'];
 
 	$void=-1;
-	while(list($section)=each($manlix['sections2']))
+	foreach($manlix['sections2'] as $section => $_)
 	{
 	$void++;
-		while(list($number)=each($manlix['sections2'][$section]))
+		foreach($manlix['sections2'][$section] as $number => $_)
 		{
 			if(!empty($a[$void][$number]))
 			{
@@ -788,7 +788,7 @@ $admin=strtolower($admin);
 
 	if($admins=manlix_read_file($manlix['dir']['path']."/".$manlix['dir']['datadir']."/".$manlix['file']['admins']))
 	{
-		while(list(,$body)=each($admins))
+		foreach($admins as $body)
 		{
 		list($name)=explode("::",$body);
 			if(strtolower($name)==$admin)
@@ -825,7 +825,7 @@ $manlix['okay']=null;
 	$manlix['status'].="<br/><br/><b>» Пароль должен содержать, только: русские,<br/>латинские буквы, цифры, чёрточку (минус),<br/>знак подчёркивания и пробел</b>";
 
 	elseif(strlen($manlix['temp']['password2'])==32)
-	$manlix[status].="<br/><b>» Пароль не должен равняться 32 символам</b>";
+	$manlix['status'].="<br/><b>» Пароль не должен равняться 32 символам</b>";
 
 	else
 	{
@@ -840,11 +840,11 @@ $manlix['okay']=null;
 	if(empty($manlix['temp']['a']))	$manlix['okay'].="Для него Вы не установили никаких прав,<br/>т.е. он сможет просто зайти в управление,<br/>но не более.<hr size=1 width=325 color=maroon>";
 
 				$void=-1;
-				while(list($section)=each($manlix['sections']))
+				foreach($manlix['sections'] as $section => $_)
 				{
 				$void++;
 				$manlix['okay'].='<table border=0 width=300 cellspacing=1 cellpadding=3 align=center bgcolor=#faad1e><caption><font face=verdana size=1 color=maroon>Права доступа для раздела <font color=#de0000>'.$section.'</font>:</font></caption>';
-					while(list($number,$result)=each($manlix['sections'][$section]))
+					foreach($manlix['sections'][$section] as $number => $result)
 					{
 					$manlix['okay'].='<tr><td bgcolor=#f7f1e1><font face=verdana size=1>'.($number+1).'<font face=verdana size=1>.</font> '.ucfirst($result).'</font></td><td bgcolor="';
 
@@ -981,8 +981,8 @@ function description($section,$key){
 function ShowMessages(){
 global $manlix,$guestbook_page,$manlix_array_navigation;
 
-		while(list($section,$array)=each($manlix))
-			while(list($key,$value)=each($array))
+		foreach($manlix as $section => $array)
+			foreach($array as $key => $value)
 			$manlix['other'][chr(73).chr(110).chr(105).ucfirst(strtolower($section)).ucfirst(strtolower($key))]=$value;
 
 	if($manlix['count']=$manlix['other']['AllMessages']=count($manlix['base']))
@@ -1011,7 +1011,7 @@ global $manlix,$guestbook_page,$manlix_array_navigation;
 
 	$manlix['strings']=$manlix_array_navigation;
 
-		while(list($number,$string)=each($manlix['strings']['result_strings']))
+		foreach($manlix['strings']['result_strings'] as $number => $string)
 		{
 		$manlix['other']['num']=$manlix['strings']['count_all_strings']-$manlix['strings']['start_string']-$number;
 //		$manlix['other']['bgcolor']=strstr($manlix['other']['num']/2,".")?$manlix['color']['uneven']:$manlix['color']['even'];
@@ -1052,10 +1052,10 @@ global $manlix;
 
 $array=manlix_read_file($manlix['dir']['path']."/".$manlix['dir']['datadir']."/".$manlix['file']['autochange']);
 
-	while(list(,$string)=each($array))
+	foreach($array as $string)
 	{
 	list($a)=explode("::",$string);
-		if(ereg("/(.*)/i",$a,$other)&&strtolower($other[1])==strtolower($value))
+		if(preg_match("~/(.*)/i~",$a,$other)&&strtolower($other[1])==strtolower($value))
 		return 1;
 	}
 return 0;
@@ -1073,12 +1073,12 @@ $BanlistFile=manlix_read_file($manlix['dir']['path']."/".$manlix['dir']['datadir
 	$OpenBanlistFile=fopen($manlix['dir']['path']."/".$manlix['dir']['datadir']."/".$manlix['file']['banlist'],"w");
 	flock($OpenBanlistFile,1);
 	flock($OpenBanlistFile,2);
-		while(list(,$string)=each($BanlistFile))
+		foreach($BanlistFile as $string)
 		{
 		list($addr,$reason,$time)=explode("::",$string);
 			if(time()<$time)
 			{
-				if(ereg("^".$addr,$ip))
+				if(preg_match("~^".$addr."~",$ip))
 				$banlist=array(date('d.m.Y (H:i)',$time),$reason);
 				fwrite($OpenBanlistFile,$string);
 			}
@@ -1098,7 +1098,7 @@ $BanlistFile=manlix_read_file($manlix['dir']['path']."/".$manlix['dir']['datadir
 
 	if(count($BanlistFile))
 	{
-		while(list(,$string)=each($BanlistFile))
+		foreach($BanlistFile as $string)
 		{
 		list($addr,$reason,$time)=explode("::",$string);
 			if($ip==$addr)

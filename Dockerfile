@@ -1,4 +1,4 @@
-FROM php:7.2.24-apache
+FROM php:8.3.36-apache
 WORKDIR /var/www/html
 RUN apt-get update && apt-get install -y \
         libfreetype6-dev \

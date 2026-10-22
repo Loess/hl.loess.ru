@@ -109,7 +109,7 @@ class input{
     private function check_date($i){
         if ($i=='0000-00-00' or $i=="") return TRUE;
         $i=explode("-",$i);
-        if(checkdate($i[1],$i[2],$i[0])) return TRUE;
+        if(checkdate((int)($i[1] ?? 0),(int)($i[2] ?? 0),(int)($i[0] ?? 0))) return TRUE;
         else return FALSE;
     }
     public function get_identity(){

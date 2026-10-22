@@ -3,11 +3,11 @@
 $head_title=($ru==0?"Half-Life.Loess.ru - donations":"Half-Life.Loess.ru - пожертвования");
 
 
-echo($ru==0?"At the moment of 2023 I am spending ~15$ per month to maintain this site and server,
-	there is no paid ads and no profit.
+echo($ru==0?"At the moment of 2026 I am spending ~10$ per month to maintain this site and server,
+	there is no ads and no profit.
 <br />You can help me by sending hardware and/or any amount of crypto to:":
-	"В настоящий момент (2023 год) на содержание тратится ~1круб/мес,
-	сайт и сервер не содержат платной рекламы, и никак не окупаются.
+	"В настоящий момент (2026 год) на содержание тратится ~800руб/мес,
+	сайт и сервер не содержат рекламы, и никак не окупаются.
 <br />Ты можешь помочь автору, отправив ему любое количество условных единиц на:");
 
 ?>

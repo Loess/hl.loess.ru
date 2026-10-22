@@ -204,7 +204,7 @@ function process_templates($type,$data,$reqs="",$c17rate="",$reqsfull=""){
   	else{return false;}
     $res = mysqli_query($link,$query);
     if (!$res) {return false;}
-    if (mysqli_num_rows($res)>0){while($R=mysqli_fetch_array($res, MYSQL_ASSOC)){$data[]=$R;};return $data;}
+    if (mysqli_num_rows($res)>0){while($R=mysqli_fetch_array($res, MYSQLI_ASSOC)){$data[]=$R;};return $data;}
     else { return false; }
   }
   function GetAssocArray($link,$query) {
@@ -212,6 +212,7 @@ function process_templates($type,$data,$reqs="",$c17rate="",$reqsfull=""){
 // where keyX   - first parameter in SELECT query
 //       valueX - second parameter in SELECT query
     $res= mysqli_query($link,$query);
+    if ($res === false) { return false; }
     if(mysqli_num_rows($res)) {
       while($R= mysqli_fetch_row($res)) $arr[$R[0]]= $R[1];
       return $arr;
@@ -221,6 +222,7 @@ function process_templates($type,$data,$reqs="",$c17rate="",$reqsfull=""){
     if(!$this->tbl) { return false; }
     $query = "SELECT * FROM $this->tbl WHERE ID=$this->id";
     $res = mysqli_query($link,$query);
+    if ($res === false) { return false; }
     if(mysqli_num_rows($res)) { return mysqli_fetch_assoc($res); }
     else { return false; }
   }
@@ -229,7 +231,7 @@ function process_templates($type,$data,$reqs="",$c17rate="",$reqsfull=""){
     $query = "INSERT INTO hl_mods (UserName,Account,Passwd,GroupID) VALUES ('$name','$account',PASSWORD('$passwd'),'$groupid')";
     mysqli_query($link,$query);
     //$this->id=mysql_insert_id();
-    return mysqli_error();
+    return mysqli_error($link);
   }
 
 

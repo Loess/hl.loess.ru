@@ -879,7 +879,7 @@ screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
 "border='0' width='88' height='31'><\/a>")
 //--></script><!--/LiveInternet-->
 <?php
-	if(1==1){  ?><br />
+	if(1==0){  ?><br />
 <!-- Rating@Mail.ru counter -->
 <script type="text/javascript">//<![CDATA[
 var a='';js=10;d=document;
@@ -896,13 +896,7 @@ style="border:0;" height="31" width="88" alt="" /></a></p></noscript>
 	<?php }
  ?>
 <!-- Yandex.Metrika counter --><div style="display:none;"><script type="text/javascript">(function(w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter5527900 = new Ya.Metrika({id:5527900, clickmap:true, trackLinks:true, webvisor:true}); } catch(e) { } }); })(window, "yandex_metrika_callbacks");</script></div><script src="//mc.yandex.ru/metrika/watch.js" type="text/javascript" defer="defer"></script><noscript><div><img src="//mc.yandex.ru/watch/5527900" style="position:absolute; left:-9999px;" alt="" /></div></noscript><!-- /Yandex.Metrika counter -->
-</div><div align="left" style="margin-left:0px;padding-bottom:0px"><a href="http://clustrmaps.com/map/Hl.loess.ru"><img
-src="http://www2.clustrmaps.com/stats/maps-no_clusters/hl.loess.ru-thumb.jpg"
-alt="Locations of visitors to this page" <?php
-	if(count($_GET)==0 or isset($_GET["mods"]) or isset($_GET["txt"]) or (count($_GET)==1 and isset($_GET["ru"])) or
-	(count($_GET)==1 and isset($_GET["en"]))){echo("width=\"120\" height=\"80\"");}
-	else echo("width=\"0\" height=\"0\"");
-	 ?>/></a></div><?php
+</div><?php
 	}
 elseif($hosting=="localhost"){
  ?><div align="left"><img style="padding-left:10px;padding-bottom:30px" src="./hit.gif"

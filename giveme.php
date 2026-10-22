@@ -16,6 +16,7 @@ if (isset($_GET['id'])
 	and $_GET['id']>0
 	and isset($_SERVER["HTTP_X_REQUESTED_WITH"])
 	and $_SERVER["HTTP_X_REQUESTED_WITH"]=="XMLHttpRequest"
+	and isset($_SERVER["HTTP_REFERER"])
 	and stristr($_SERVER["HTTP_REFERER"],"https://hl.loess.ru/")){
 
 	@require_once("lib.php");
@@ -24,8 +25,8 @@ if (isset($_GET['id'])
 	$id=intval($_GET["id"]);
 //  function GetInfo($select,$id=0,$where="",$limit="",$table="hl_mods") {  // * или поля через запятую
     $data=GetInfo($link,"alivelinks",$id,"","0");
-    if($_GET["comm"]!=substr(md5(md5($data['alivelinks']).date('F')),0,3)) exit("error 3"); //не сходится $_GET["comm"]
     if($data=="") exit("error 2");                                              //пустой ответ
+    if($_GET["comm"]!=substr(md5(md5($data['alivelinks']).date('F')),0,3)) exit("error 3"); //не сходится $_GET["comm"]
 echo process_links($data['alivelinks'],1);
 $f=@fopen("./persistent/downloads.txt","a");
 @flock($f,LOCK_EX);

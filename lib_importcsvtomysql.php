@@ -3,7 +3,9 @@ require_once __DIR__ . '/lib_mysql.php';
 
 
 function csv_to_mysql_insert($data) //если будут добавляться новые столбцы, в этой функции добавить ещё $result.="'".$value."',";
-{	$result="";	foreach ($data as $key => $value)
+{
+	$result="";
+	foreach ($data as $key => $value)
 	{
 	if($key=="id" && $value=="") {echo('csv_to_mysql_insert - no id at $data<br/>');break; }//если id == "" пропускаем
 	if($key=="Name" && $value=="") {echo('csv_to_mysql_insert - no name at $data<br/>');break;} //если name == "" пропускаем
@@ -71,8 +73,10 @@ if ($data==FALSE) die("no csv found");
 echo("<a href=\"".$hostlink."?upload\">Upload</a><br/>\r\n");
 echo(""." Перезалить базу из csv ".$hostlink."?upload&rebuildbase - old-style, сбросятся downloads<br/>\r\n");
 
-if(isset($_GET["rebuildbase"]) and (!isset($_GET["addnewmods"]) and !isset($_GET["renewmods"]))){	echo("truncate <b>".mysqli_query($link, "TRUNCATE TABLE `hl_mods`")."</b><br/>\r\n");
-	foreach ($data as $value){		echo("id=".$value["id"]);
+if(isset($_GET["rebuildbase"]) and (!isset($_GET["addnewmods"]) and !isset($_GET["renewmods"]))){
+	echo("truncate <b>".mysqli_query($link, "TRUNCATE TABLE `hl_mods`")."</b><br/>\r\n");
+	foreach ($data as $value){
+		echo("id=".$value["id"]);
 		$value=csv_to_mysql_insert($value);
 		//print_r($value."<br/>");
 		echo(" ".mysqli_query($link, "INSERT INTO `hl_mods` VALUES (".$value.");")."<br/>\r\n");
@@ -82,14 +86,18 @@ if(isset($_GET["rebuildbase"]) and (!isset($_GET["addnewmods"]) and !isset($_GET
 }
 
 $res=mysqli_query($link, "SELECT COUNT(*) FROM `hl_mods`");
+if ($res === false) { die("SELECT COUNT(*) failed: ".mysqli_error($link)); }
 $res=mysqli_fetch_array($res, MYSQLI_NUM);
 echo("<pre>Записей в базе: ".$res[0]."</pre>\r\n");
 echo("<pre>Записей в csv: ".count($data)."</pre>\r\n<br/>");
 $novihmodov=count($data)-$res[0];
-if ($novihmodov>0){	echo("Новых модов: ".$novihmodov." <a href=\"".$hostlink."?upload&addnewmods\">добавить</a><br/>\r\n");
-	for($novihmodov;$novihmodov>0;$novihmodov--){		$novihmodovdata[]=$data[count($data)-1-($novihmodov-1)];
+if ($novihmodov>0){
+	echo("Новых модов: ".$novihmodov." <a href=\"".$hostlink."?upload&addnewmods\">добавить</a><br/>\r\n");
+	for($novihmodov;$novihmodov>0;$novihmodov--){
+		$novihmodovdata[]=$data[count($data)-1-($novihmodov-1)];
 	}
-	foreach ($novihmodovdata as $value){		$value=csv_to_mysql_insert($value);
+	foreach ($novihmodovdata as $value){
+		$value=csv_to_mysql_insert($value);
 		print_r("INSERT INTO `hl_mods` VALUES (".$value.");<br/>");
 		if(isset($_GET["addnewmods"]) and (!isset($_GET["rebuildbase"]) and !isset($_GET["renewmods"]))){
 		echo("\r\n".mysqli_query($link, "INSERT INTO `hl_mods` VALUES (".$value.");")."<br/>");
@@ -99,14 +107,16 @@ if ($novihmodov>0){	echo("Новых модов: ".$novihmodov." <a href=\"".$hostlink."?
 
 echo("<br/>");
 foreach ($data as $value){
-	if ($value['MySQL renew?']!=""){		$mysqldata=GetInfo("*",$value["id"]); //возвращает FALSE если нет такого в базе
+	if ($value['MySQL renew?']!=""){
+		$mysqldata=GetInfo("*",$value["id"]); //возвращает FALSE если нет такого в базе
 		if ($mysqldata==FALSE){continue;} //если в базе не найден мод с таким id (не обновление а новый мод в csv)
 		$value=explode("','",substr(csv_to_mysql_insert($value),1,-1));    //убираем запятые слева и справа
 		$table_head="<table class=\"moddb\"><tr class=\"head\">";$table_row1="";$table_row2="";
 		//$mysql_query="UPDATE `loess_tapohkak`.`hl_mods` SET ";
 		$mysql_query="UPDATE `hl_mods` SET ";
 
-foreach ($mysqldata as $k=>$v){//добавляем двойные апострофы в дате мускуля	$mysqldata[$k]=str_replace("'","''",$v);
+foreach ($mysqldata as $k=>$v){//добавляем двойные апострофы в дате мускуля
+	$mysqldata[$k]=str_replace("'","''",$v);
 }
 
 		if($value[5]=="")$value[5]="0000-00-00";
@@ -118,8 +128,8 @@ foreach ($mysqldata as $k=>$v){//добавляем двойные апострофы в дате мускуля	$my
 		if($value[2]!=$mysqldata["lastver"])		{$table_head.='<td>lastver</td>';$table_row1.='<td>'.$mysqldata["lastver"].'</td>';		$table_row2.='<td style="color:red">'.$value[2]."</td>";		$mysql_query.="`lastver` = '".$value[2]."',";}
 		if($value[3]!=$mysqldata["type"])			{$table_head.='<td>type</td>';$table_row1.='<td>'.$mysqldata["type"].'</td>';			$table_row2.='<td style="color:red">'.$value[3]."</td>";		$mysql_query.="`type` = '".$value[3]."',";}
 		if($value[4]!=$mysqldata["requirements"])	{$table_head.='<td>requirements</td>';$table_row1.='<td>'.$mysqldata["requirements"].'</td>';$table_row2.='<td style="color:red">'.$value[4]."</td>";	$mysql_query.="`requirements` = '".$value[4]."',";}
-		if(strtotime($value[5])!=strtotime($mysqldata["released"]))		{$table_head.='<td>released</td>';$table_row1.='<td>'.$mysqldata["released"].'</td>';$table_row2.='<td style="color:red">'.$value[5]."</td>";$mysql_query.="`released` = '".$value[5]."',";}
-		if(strtotime($value[6])!=strtotime($mysqldata["lastupdate"]))	{$table_head.='<td>lastupdate</td>';$table_row1.='<td>'.$mysqldata["lastupdate"].'</td>';$table_row2.='<td style="color:red">'.$value[6]."</td>";$mysql_query.="`lastupdate` = '".$value[6]."',";}
+		if(strtotime($value[5])!=strtotime($mysqldata["released"] ?? ''))	{$table_head.='<td>released</td>';$table_row1.='<td>'.$mysqldata["released"].'</td>';$table_row2.='<td style="color:red">'.$value[5]."</td>";$mysql_query.="`released` = '".$value[5]."',";}
+		if(strtotime($value[6])!=strtotime($mysqldata["lastupdate"] ?? ''))	{$table_head.='<td>lastupdate</td>';$table_row1.='<td>'.$mysqldata["lastupdate"].'</td>';$table_row2.='<td style="color:red">'.$value[6]."</td>";$mysql_query.="`lastupdate` = '".$value[6]."',";}
 		if($value[7]!=$mysqldata["filename"])		{$table_head.='<td>filename</td>';$table_row1.='<td>'.$mysqldata["filename"].'</td>';	$table_row2.='<td style="color:red">'.$value[7]."</td>";		$mysql_query.="`filename` = '".$value[7]."',";}
 		if($value[8]!=$mysqldata["alivelinks"])		{$table_head.='<td>alivelinks</td>';$table_row1.='<td>'.$mysqldata["alivelinks"].'</td>';$table_row2.='<td style="color:red">'.$value[8]."</td>";		$mysql_query.="`alivelinks` = '".$value[8]."',";}
 		if($value[9]!=$mysqldata["dowehave"])		{$table_head.='<td>dowehave</td>';$table_row1.='<td>'.$mysqldata["dowehave"].'</td>';	$table_row2.='<td style="color:red">'.$value[9]."</td>";		$mysql_query.="`dowehave` = '".$value[9]."',";}
@@ -140,7 +150,8 @@ foreach ($mysqldata as $k=>$v){//добавляем двойные апострофы в дате мускуля	$my
 		$mysql_query=substr($mysql_query,0,-1)." WHERE `hl_mods`.`id` =".$value[0].";"; //убираем запятую+завершаем запрос
 		$table_head.="</tr>";$table_row1.="</tr>";$table_row2.="</tr>";
 		$table_head=$table_head.$table_row1.$table_row2."</table><br/>";
-		if (strstr($table_head,'<td style="color:red">')){			echo("Обновляемая запись: <a href=\"".$hostlink."?upload&renewmods\">обновить все</a><br/>\r\n");
+		if (strstr($table_head,'<td style="color:red">')){
+			echo("Обновляемая запись: <a href=\"".$hostlink."?upload&renewmods\">обновить все</a><br/>\r\n");
 			echo ($table_head);
 			echo("".str_replace(array("<",">"),array("&lt;","&gt;"),$mysql_query)."<br/>");
 			if(isset($_GET["renewmods"]) and (!isset($_GET["rebuildbase"]) and !isset($_GET["addnewmods"]))){
@@ -153,7 +164,8 @@ foreach ($mysqldata as $k=>$v){//добавляем двойные апострофы в дате мускуля	$my
 
 		//UPDATE `loess_tapohkak`.`hl_mods` SET `lastupdate` = '2013-10-09', `dev` = '11156', `homepage` = '987' WHERE `hl_mods`.`id` =1171;
 		//print_r($mysqldata);
-		//print_r($value);
+		//print_r($value);
+
 	}
 }
 echo("</pre>\r\n");
