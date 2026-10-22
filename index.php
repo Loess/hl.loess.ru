@@ -847,7 +847,7 @@ if($years>0){echo $years." лет";}
 if($months>0){echo ", ".$months." месяц".($months>1?"ев":"");}
 if($days>0){echo " и ".$days." дней";}
 echo " назад.</p>";
-echo "<p>Здесь можно скачать 99% модов Half-Life. Если не получается - <a href=\"./?feedback\">попросите в ГБ</a> или <a href=\"https://t.me/hl_loess_ru\" target=\"_blank\">в ТГ канале</a> поправить линк</p>";
+echo "<p>Здесь можно скачать 89% модов Half-Life. Если не получается - <a href=\"./?feedback\">попросите в ГБ</a> или <a href=\"https://t.me/hl_loess_ru\" target=\"_blank\">в ТГ канале</a> поправить линк</p>";
 echo("<p style=\"/*text-shadow: white 0px 0px 1px;*/\">весь список: <a href=\"./?mods\">HL MODS</a> или <a href=\"./?mods&amp;sortby=last\">Последние МОДы</a>,</p>");
 echo "<p>по всем вопросам прошу в <a href=\"./?feedback\">гостевуху</a>.</p>";
 echo("<br /><br />Последние события:<p style=\"/*text-shadow: white 0px 0px 1px;*/font-family:sans-serif;\">");require_once("./content/updates.txt");echo("</p>");

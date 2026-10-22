@@ -76,7 +76,7 @@ $value=str_replace("&","&amp;",$value);
 function process_templates($type,$data,$reqs="",$c17rate="",$reqsfull=""){
 	switch($type){   //reqs c17 pp moddb twhl
 	   case "reqs":
-	   if($data=="")return NULL;//or false
+	   if($data === "" or $data === null) return NULL;//or false
 	   elseif($data=="of" or $data=="th" or $data=="bs" or $data=="cs"/* or $data=="hl:s"*/){
 	   	switch($data){
 	   		case "of":$text="Opposing Force";break;
@@ -85,28 +85,28 @@ function process_templates($type,$data,$reqs="",$c17rate="",$reqsfull=""){
 	   		case "cs":$text="Counter-Strike";break;
 	   		//case "hl:s":$text="Half-Life: Source";break;
 	   	}
-	   	$out="<a href=\"http://".$_SERVER["HTTP_HOST"].substr($_SERVER["PHP_SELF"],0,strlen($_SERVER["PHP_SELF"])-9)."?engine=".$data."\"><img src=\"./style/spacer.gif\" class=\"".$data."\" alt=\"\" />".($reqsfull!=""?$text:"")."</a>"; //только картинка
+	   	$out="<a href=\"http://".$_SERVER["HTTP_HOST"].substr($_SERVER["PHP_SELF"],0,strlen($_SERVER["PHP_SELF"])-9)."?engine=".$data."\"><img src=\"./style/spacer.gif\" class=\"".$data."\" alt=\"\" />".(!empty($reqsfull)?$text:"")."</a>"; //только картинка
 	   return($out);
 	   }
 	   elseif($data=="HOE"){$text="Heart of Evil";
-//	   return("<a href=\"http://".$_SERVER["HTTP_HOST"].substr($_SERVER["PHP_SELF"],0,strlen($_SERVER["PHP_SELF"])-9)."?engine=".$data."\">".($reqsfull!=""?$text:"HOE")."</a>");
-	   return("<a href=\"http://".$_SERVER["HTTP_HOST"].substr($_SERVER["PHP_SELF"],0,strlen($_SERVER["PHP_SELF"])-9)."?mods=&search=heart+of+evil\">".($reqsfull!=""?$text:"HOE")."</a>");
+//	   return("<a href=\"http://".$_SERVER["HTTP_HOST"].substr($_SERVER["PHP_SELF"],0,strlen($_SERVER["PHP_SELF"])-9)."?engine=".$data."\">".(!empty($reqsfull)?$text:"HOE")."</a>");
+	   return("<a href=\"http://".$_SERVER["HTTP_HOST"].substr($_SERVER["PHP_SELF"],0,strlen($_SERVER["PHP_SELF"])-9)."?mods=&search=heart+of+evil\">".(!empty($reqsfull)?$text:"HOE")."</a>");
 	   }
 	   elseif($data=="dod"){$text="Day of Defeat";
-	   return("<a href=\"http://".$_SERVER["HTTP_HOST"].substr($_SERVER["PHP_SELF"],0,strlen($_SERVER["PHP_SELF"])-9)."?mods=&search=day+of+defeat\">".($reqsfull!=""?$text:"DOD")."</a>");
+	   return("<a href=\"http://".$_SERVER["HTTP_HOST"].substr($_SERVER["PHP_SELF"],0,strlen($_SERVER["PHP_SELF"])-9)."?mods=&search=day+of+defeat\">".(!empty($reqsfull)?$text:"DOD")."</a>");
 	   }
 	   elseif($data=="HQA"){$text="HalfQuake Amen";
-	   return("<a href=\"http://".$_SERVER["HTTP_HOST"].substr($_SERVER["PHP_SELF"],0,strlen($_SERVER["PHP_SELF"])-9)."?mods=&search=half+quake+amen\">".($reqsfull!=""?$text:"HQA")."</a>");
+	   return("<a href=\"http://".$_SERVER["HTTP_HOST"].substr($_SERVER["PHP_SELF"],0,strlen($_SERVER["PHP_SELF"])-9)."?mods=&search=half+quake+amen\">".(!empty($reqsfull)?$text:"HQA")."</a>");
 	   }
 	   elseif($data=="hl:s"){$text="Half-Life: Source";
-	   return("<a href=\"http://".$_SERVER["HTTP_HOST"].substr($_SERVER["PHP_SELF"],0,strlen($_SERVER["PHP_SELF"])-9)."?engine=".$data."\">".($reqsfull!=""?$text:"HL:S")."</a>");
+	   return("<a href=\"http://".$_SERVER["HTTP_HOST"].substr($_SERVER["PHP_SELF"],0,strlen($_SERVER["PHP_SELF"])-9)."?engine=".$data."\">".(!empty($reqsfull)?$text:"HL:S")."</a>");
 	   }
 	   else{
 	   	if(is_numeric($data) and $data<1111 and $data>999){
-       	return("<a href=\"http://".$_SERVER["HTTP_HOST"].substr($_SERVER["PHP_SELF"],0,strlen($_SERVER["PHP_SELF"])-9)."?engine=".$data."\"><img src=\"./style/spacer.gif\" class=\"hl\" alt=\"\" />".($reqsfull!=""?$data:"")."</a>");    //только картинка
+       	return("<a href=\"http://".$_SERVER["HTTP_HOST"].substr($_SERVER["PHP_SELF"],0,strlen($_SERVER["PHP_SELF"])-9)."?engine=".$data."\"><img src=\"./style/spacer.gif\" class=\"hl\" alt=\"\" />".(!empty($reqsfull)?$data:"")."</a>");    //только картинка
 	   	}
 		elseif(is_numeric($data) and $data>=1111){
-       	return("<a href=\"http://".$_SERVER["HTTP_HOST"].substr($_SERVER["PHP_SELF"],0,strlen($_SERVER["PHP_SELF"])-9)."?engine=".$data."\"><img src=\"./style/spacer.gif\" class=\"hlsteam\" alt=\"\" />".($reqsfull!=""?$data:"")."</a>");   //только картинка
+       	return("<a href=\"http://".$_SERVER["HTTP_HOST"].substr($_SERVER["PHP_SELF"],0,strlen($_SERVER["PHP_SELF"])-9)."?engine=".$data."\"><img src=\"./style/spacer.gif\" class=\"hlsteam\" alt=\"\" />".(!empty($reqsfull)?$data:"")."</a>");   //только картинка
 		}
 		else return($data);
 	   }
